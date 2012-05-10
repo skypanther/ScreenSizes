@@ -23,10 +23,9 @@ exports.isTablet = function(diagonalInches) {
 	switch(osname) {
 		case 'ipad':
 			return true;
-		case 'android':
-			return (diagonalSize >= diag) ? true : false;
+		break;
 		default:
-			return false;
+			return (diagonalSize >= diag) ? true : false;
 	}
 };
 
@@ -38,12 +37,9 @@ exports.osname = function(diagonalInches) {
 	var diag = (diagonalInches) ? parseFloat(diagonalInches) : 8;
 	var osname = Ti.Platform.osname;
 	switch(osname) {
-		case 'ipad':
-		case 'iphone':
-		case 'ipod':
-			return osname;
 		case 'android':
 			return (diagonalSize >= diag) ? 'androidtablet' : 'android';
+		break;
 		default:
 			return osname;
 	}	
