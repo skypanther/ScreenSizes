@@ -1,5 +1,3 @@
-h1. Screen Size Module
-
 Titanium module for determining if your app is running on a tablet or handset
 
 Note: the module makes an arbitrary cutoff between tablets and phones at 8 inches diagonal. You can override this. In my testing, layouts designed for a handset tend to work on devices with up to 7-inch (diagonal) screens and need tweaking for larger screens. Your mileage may vary.
