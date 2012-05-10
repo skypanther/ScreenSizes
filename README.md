@@ -11,9 +11,9 @@ var tabtest = require('tablet');
 
 Then call one of its three functions:
 
-tabtest.isTablet() - returns TRUE on tablet, FALSE on handset
-tabtest.osname() - returns a string of ipod, iphone, ipad, android, or androidtablet
-tabtest.screensize() - returns diagonal screen dimension in inches
+* tabtest.isTablet() - returns TRUE on tablet, FALSE on handset
+* tabtest.osname() - returns a string of ipod, iphone, ipad, android, or androidtablet
+* tabtest.screensize() - returns diagonal screen dimension in inches
 
 You can pass a float value to any of those three functions to specify a diagonal measurement above which the device will be considered a tablet. E.g.
 
