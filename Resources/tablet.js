@@ -8,20 +8,23 @@
 
 
 */
+
+var osname = Ti.Platform.osname;
+	dpi = Ti.Platform.displayCaps.dpi,
+	w = Ti.Platform.displayCaps.platformWidth / dpi,
+	h = Ti.Platform.displayCaps.platformHeight / dpi,
+	diagonalSize = Math.sqrt(w*w+h*h);
+
 exports.isTablet = function(diagonalInches) {
 	/*
 		Returns Boolean, true = device is a tablet
 	*/
-	var diag = diagonalInches|8;
-	var osname = Ti.Platform.osname;
+	var diag = (diagonalInches) ? parseFloat(diagonalInches) : 8;
 	switch(osname) {
 		case 'ipad':
 			return true;
 		case 'android':
-			var dpi = Ti.Platform.displayCaps.dpi;
-			var w = Ti.Platform.displayCaps.platformWidth / dpi;
-			var h = Ti.Platform.displayCaps.platformHeight / dpi;
-			return (Math.sqrt(w*w+h*h) >= diag) ? true : false;
+			return (diagonalSize >= diag) ? true : false;
 		default:
 			return false;
 	}
@@ -32,7 +35,7 @@ exports.osname = function(diagonalInches) {
 		Custom osname function, returns string that includes 'androidtablet'
 		descriptor that you could use for branching on an Android device
 	*/
-	var diag = diagonalInches|8;
+	var diag = (diagonalInches) ? parseFloat(diagonalInches) : 8;
 	var osname = Ti.Platform.osname;
 	switch(osname) {
 		case 'ipad':
@@ -40,10 +43,7 @@ exports.osname = function(diagonalInches) {
 		case 'ipod':
 			return osname;
 		case 'android':
-			var dpi = Ti.Platform.displayCaps.dpi;
-			var w = Ti.Platform.displayCaps.platformWidth / dpi;
-			var h = Ti.Platform.displayCaps.platformHeight / dpi;
-			return (Math.sqrt(w*w+h*h) >= diag) ? 'androidtablet' : 'android';
+			return (diagonalSize >= diag) ? 'androidtablet' : 'android';
 		default:
 			return osname;
 	}	
@@ -53,10 +53,7 @@ exports.screensize = function() {
 	/*
 		Returns the DIAGONAL screen size in inches
 	*/
-	var dpi = Ti.Platform.displayCaps.dpi;
-	var w = Ti.Platform.displayCaps.platformWidth / dpi;
-	var h = Ti.Platform.displayCaps.platformHeight / dpi;
-	return Math.sqrt(w*w+h*h);
+	return diagonalSize;
 };
 
 
