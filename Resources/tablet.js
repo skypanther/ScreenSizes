@@ -9,7 +9,7 @@
 
 */
 
-var osname = Ti.Platform.osname;
+var osname = Ti.Platform.osname,
 	dpi = Ti.Platform.displayCaps.dpi,
 	w = Ti.Platform.displayCaps.platformWidth / dpi,
 	h = Ti.Platform.displayCaps.platformHeight / dpi,
@@ -42,7 +42,7 @@ exports.osname = function(diagonalInches) {
 		break;
 		default:
 			return osname;
-	}	
+	}
 };
 
 exports.screensize = function() {
